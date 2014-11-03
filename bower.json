@@ -1,0 +1,7 @@
+{
+  "name": "WebComponent-me",
+  "version": "1.0.0",
+  "dependencies": {
+    "ninja-presentation": "~0.3.0"
+  }
+}

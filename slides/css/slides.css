@@ -1,0 +1,7 @@
+ninja-presentation /deep/ .list{
+    list-style: none;
+}
+
+ninja-presentation /deep/ .list li {
+    text-align: left;
+}
