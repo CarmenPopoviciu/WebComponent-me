@@ -1,7 +1,59 @@
-ninja-presentation /deep/ .list{
+/* General styles==================================================*/
+ninja-presentation /deep/ .text-left {
+    text-align: left;
+}
+
+ninja-presentation /deep/ .text-small {
+    font-size: 30px;
+}
+
+ninja-presentation /deep/ .no-margins {
+    margin: 0px;
+}
+
+ninja-presentation /deep/ a {
+    color: #b76564;
+    text-decoration: underline;
+}
+
+ninja-presentation /deep/ .list {
     list-style: none;
 }
 
-ninja-presentation /deep/ .list li {
+
+/* Custom styles====================================================*/
+ninja-presentation /deep/ .devfest-logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+ninja-presentation /deep/ .profile-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+ninja-presentation /deep/ .transparent {
+    opacity: 0.2;
+}
+
+ninja-presentation /deep/ .newsflash {
+    background: url("../images/newsflash.png") no-repeat right top;
+    width: 900px;
+    height: 250px;
+    vertical-align: middle;
+}
+
+/*override the ninja-slide styling for the code-sandbox components*/
+ninja-presentation /deep/ .code-sandbox {
+    height: 300px;
     text-align: left;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+ninja-presentation /deep/ .funny {
+    height: 450px;
+    width: 750px;
 }

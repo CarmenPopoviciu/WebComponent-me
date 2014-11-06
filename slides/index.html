@@ -6,24 +6,81 @@
         <script type="text/javascript" src="bower_components/platform/platform.js"></script>
         <link rel="import" href="bower_components/polymer/polymer.html">
         <link rel='import' href='bower_components/ninja-presentation/src/ninja-presentation.html'>
+        <link rel="import" href="libs/code-sandbox/code-sandbox.html">
 
         <link rel="stylesheet" type="text/css" href="css/slides.css">
     </head>
 
     <body>
         <ninja-presentation>
-            <ninja-slide align="center">
-                <h1>Web Components</h1>
+            <!-- INTRO ---------------------------------------------------------------------------------------->
+            <ninja-slide align="center" background="url(images/devfest-background.png) no-repeat right">
+                <img class="devfest-logo" src="images/devfest-logo.png">
+                <h2>Introduction to Web Components</h2>
+                <img class="profile-img" src="images/profile.jpg">
+                <p class="text-small no-margins">@CarmenPopoviciu</p>
             </ninja-slide>
 
             <ninja-slide align="center">
-                <h3>Are a collection of emerging standards</h3>
-                <a href="http://www.w3.org/standards/techs/components#w3c_all" target="_blank">w3c</a>
+                <img class="funny" src="images/calmdown.gif">
             </ninja-slide>
 
-            <ninja-slide class="list" align="center">
-                <h3>Four standards</h3>
-                <ul class="list">
+            <ninja-slide align="center">
+                <h4>Before we start, a few MUST KNOWS about this talk</h4>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>1. I don't wear glasses!</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/gpost.png">
+                <div class="fragment">
+                    <p class="no-margins">2. You'll be seeing some more of Oprah </p>
+                </div>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>3. ... and of Flash</p>
+                <img class="fragment" src="images/flash.jpg">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>4. These slides would have not been possible without</p>
+                <div class="fragment">
+                    <a class="text-small"
+                       href="https://github.com/viniciusalmeida/ninja-presentation">https://github.com/viniciusalmeida/ninja-presentation
+                    </a>
+                    <span class="text-small">by <strong>Vinícius Almeida da Silva</strong></span>
+                </div>
+                <div class="fragment">
+                    <a class="text-small"
+                       href="https://github.com/AVGP/code-sandbox">https://github.com/AVGP/code-sandbox
+                    </a>
+                    <span class="text-small">by <strong>Martin Naumann</strong></span>
+                </div>
+                <p class="fragment"><3</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img class="funny" src="images/dealwithit.gif">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h1>Let's talk Web Components!</h1>
+            </ninja-slide>
+
+            <!-- HTML TEMPLATES ------------------------------------------------------------------------------->
+            <ninja-slide align="center">
+                <h3>Web Components are a collection of emerging
+                    <a class="mylink" href="http://www.w3.org/standards/techs/components#w3c_all" target="_blank"> standards</a>
+                    that define the way we build web applications
+                </h3>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
                     <li>
                         <img src="images/icon-templates.png">
                         <span>HTML Templates</span>
@@ -44,7 +101,172 @@
             </ninja-slide>
 
             <ninja-slide align="center">
-                <h1>Hello world!</h1>
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li>
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="left" class="quote">
+                <span><strong>tem·plate</strong> noun \ˈtem-plət\:</span>
+                <p>a document or file with a preset format, which can be reused different times</p>
+            </ninja-slide>
+
+            <ninja-slide>
+                <span>TODO: add template image</span>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p class="newsflash"><span>Templating is not news</span></p>
+                <ul class="text-left text-small">
+                    <li class="fragment">Server-side templating</li>
+                    <li class="fragment">MVC frameworks use templates for their representational layer</li>
+                    <li class="fragment">Using templates in the browser has become more widespread</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h1>Why not a native solution?</h1>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Introducing <strong>&lt;template&gt;</strong></h2>
+                <p class="fragment">allows for the declaration of document fragments which are unused by the
+                   document when loaded, but are parsed as HTML and are available at runtime for use by the web
+                   page.
+                </p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/confused.gif">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>allows for the declaration of document fragments which are unused by the
+                    document when loaded, but are parsed as HTML and are available at runtime for use by the web
+                    page.
+                </p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Important to remember!</h3>
+                <ul class="text-left">
+                    <li class="fragment">declare fragments of markup</li>
+                    <li class="fragment">parsed as HTML</li>
+                    <li class="fragment">not rendered</li>
+                    <li class="fragment">can be cloned</li>
+                    <li class="fragment">instantiated at runtime</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Declaring a template</h3>
+                <div>TODO add code</div>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/inert-template-demo.html"
+                              theme="monokai">
+                </code-sandbox>
+                <ul class="text-left text-small">
+                    <li class="fragment">Content is <strong>inert</strong></li>
+                    <li class="fragment">Scripts won't run, images won't load, media will not play, etc.</li>
+                    <li class="fragment">Content is considered not to be in the document</li>
+                    <li class="fragment">Can be placed anywhere inside of &lt;head&gt;, &lt;body&gt;, or &lt;frameset&gt;</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Activating the template</h3>
+                <div>TODO add code</div>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/active-template-demo.html"
+                              theme="monokai">
+                </code-sandbox>
+                <ul class="text-left text-small">
+                    <li class="fragment"><strong>template.content</strong> returns the contents of the template</li>
+                    <li class="fragment">The contents are stored in a <strong>DocumentFragment</strong></li>
+                    <li class="fragment">DocumentFragment is not associated with the main Document</li>
+                    <li class="fragment">The cloned node can be attached to the main Document </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Once more with...style</h3>
+                <div class="fragment">
+                    <code-sandbox class="code-sandbox top" language="xml" src="../demos/active-template-styles-demo.html"
+                                  theme="monokai">
+                    </code-sandbox>
+                </div>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>
+                    <a class="mylink" href="http://caniuse.com/#search=html%20templates"
+                       target="_blank">Browser support</a>
+                </h3>
+            </ninja-slide>
+
+            <!-- SHADOW DOM --------------------------------------------------------------------------------------->
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li>
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
             </ninja-slide>
         </ninja-presentation>
     </body>

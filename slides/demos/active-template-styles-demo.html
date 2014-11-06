@@ -1,0 +1,61 @@
+<!-- active template with styles demo -->
+
+<!-- declare template ------------------------------->
+<template id="mytemplate">
+    <!-- template contents -->
+    <div id="devfest">
+        <img src="../images/devfest-logo.png" />
+        <h1>Good morning devfest :)</h1>
+    </div>
+
+    <div>
+        <img id="profile" src="" alt="Say cheese!" />
+        <h3></h3>
+    </div>
+    <!-- end template contents -->
+</template>
+
+<div id="output"></div>
+
+
+
+
+<!-- declare styles --------------------------------->
+<style>
+    #devfest img {
+        width: 80px;
+        height: 30px;
+        float: left;
+        padding: 10px;
+    }
+
+    #devfest h1 {
+        color: indianred;
+        padding: 5px;
+    }
+
+    h3 {
+        color: dimgrey;
+    }
+
+    #profile {
+        width: 80px;
+        height: 80px;
+        border: 1px solid darkgrey;
+        border-radius: 50%;
+        float: left;
+    }
+</style>
+
+
+<!-- activate template ------------------------------------>
+<script>
+    var template = document.querySelector('#mytemplate');
+    var output = document.getElementById("output");
+
+    template.content.querySelector('#profile').src = '../images/newsflash.png';
+    template.content.querySelector("h3").textContent = "My name is Flash and I am super fast!";
+
+    var clone = document.importNode(template.content, true);
+    output.appendChild(clone);
+</script>
