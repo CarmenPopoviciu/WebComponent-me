@@ -52,6 +52,20 @@ ninja-presentation /deep/ .code-sandbox {
     font-family: monospace;
     font-size: 14px;
 }
+ninja-presentation /deep/ .prism-js {
+    height: 500px;
+    text-align: left;
+    font-family: monospace;
+    font-size: 24px;
+}
+
+ninja-presentation /deep/ .prism-js-small {
+    height: 500px;
+    text-align: left;
+    font-family: monospace;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
 
 ninja-presentation /deep/ .funny {
     height: 450px;

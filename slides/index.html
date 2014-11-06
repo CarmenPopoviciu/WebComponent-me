@@ -7,13 +7,14 @@
         <link rel="import" href="bower_components/polymer/polymer.html">
         <link rel='import' href='bower_components/ninja-presentation/src/ninja-presentation.html'>
         <link rel="import" href="libs/code-sandbox/code-sandbox.html">
+        <link rel="import" href="bower_components/prism-js/prism-js.html">
 
         <link rel="stylesheet" type="text/css" href="css/slides.css">
     </head>
 
     <body>
         <ninja-presentation>
-            <!-- INTRO -------------------------------------------------------------------------------------- -->
+            <!-- INTRO ----------------------------------------------------------------------------------------->
             <ninja-slide align="center" background="url(images/devfest-background.png) no-repeat right">
                 <img class="devfest-logo" src="images/devfest-logo.png">
                 <h2>Introduction to Web Components</h2>
@@ -59,6 +60,11 @@
                     </a>
                     <span class="text-small">by <strong>Martin Naumann</strong></span>
                 </div>
+                <div class="fragment">
+                    <a class="text-small"
+                       href="https://github.com/addyosmani/prism-js">https://github.com/addyosmani/prism-js</a>
+                    <span class="text-small">by <strong>Addy Osmani</strong></span>
+                </div>
                 <p class="fragment"><3</p>
             </ninja-slide>
 
@@ -70,7 +76,7 @@
                 <h1>Let's talk Web Components!</h1>
             </ninja-slide>
 
-            <!-- HTML TEMPLATES ----------------------------------------------------------------------------- -->
+            <!-- HTML TEMPLATES -------------------------------------------------------------------------------->
             <ninja-slide align="center">
                 <h3>Web Components are a collection of emerging
                     <a class="mylink" href="http://www.w3.org/standards/techs/components#w3c_all" target="_blank"> standards</a>
@@ -176,7 +182,14 @@
 
             <ninja-slide align="center">
                 <h3>Declaring a template</h3>
-                <div>TODO add code</div>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js">
+<template id="mytemplate">
+    <img src="" alt="THE Flash">
+    <audio>
+        <source src="flash-theme-song.mp3" type="audio/mpeg">
+    </audio>
+</template>
+                </prism-js>
             </ninja-slide>
 
             <ninja-slide align="center">
@@ -193,7 +206,17 @@
 
             <ninja-slide align="center">
                 <h3>Activating the template</h3>
-                <div>TODO add code</div>
+                <prism-js language="javascript" theme="okaidia" class="prism-js">
+// select template
+var template = document.querySelector('#mytemplate');
+
+// add your content
+template.content.querySelector('img').src = 'the-flash.png';
+
+// clone template content and append it to the document
+var clone = document.importNode(template.content, true);
+document.body.appendChild(clone);
+                </prism-js>
             </ninja-slide>
 
             <ninja-slide align="center">
@@ -224,7 +247,7 @@
                 </h3>
             </ninja-slide>
 
-            <!-- SHADOW DOM --------------------------------------------------------------------------------- -->
+            <!-- SHADOW DOM ------------------------------------------------------------------------------------>
             <ninja-slide align="center">
                 <h2>Four standards</h2>
                 <ul class="list text-left">
@@ -268,6 +291,126 @@
                     </li>
                 </ul>
             </ninja-slide>
+
+            <!-- CUSTOM ELEMENTS -------------------------------------------------------------------------------->
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2 style="margin-top: 90px;">Imagine</h2>
+                <div class="fragment">
+                    <p class="text-left text-small">this</p>
+                    <prism-js language="markup" escape="true" theme="okaidia" class="prism-js-small">
+<div class="the-flash">
+    <div class="another-class">
+        <div class="and-another-class">
+            <div class="phew-are-we-there-yet">
+                <div class="aaaand-another-class">
+                    <div class="this-will-never-end-right">
+                        <div>o_O</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </prism-js>
+                </div>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Imagine</h2>
+                <p class="text-left text-small">could look like this</p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js">
+<the-flash></the-flash>
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/happiness-cry.gif">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Custom elements</h3>
+                <p>allow developers to extend the HTML vocabulary and define new, fully-featured DOM elements</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Element registration</h3>
+                <p>is the process of adding an element definition to a registry</p>
+                <ul class="text-small text-left">
+                    <li class="fragment">At the time of creation, a document could be associated with a registry</li>
+                    <li class="fragment">A registry is a set of element definitions</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Registering a new custom element</h3>
+                <prism-js language="javascript" theme="okaidia" class="prism-js" style="height: 200px;">
+document.register('the-flash', {
+    prototype: Proto // this is optional
+});
+                </prism-js>
+                <ul class="text-small text-left">
+                    <li class="fragment">The element's tag name <strong>must contain a dash (-)</strong></li>
+                    <li class="fragment">Custom elements inherit from <strong>HTMLElement</strong> by default</li>
+                    <li class="fragment"><strong>Prototype</strong> is the place to add custom functionality</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Instantiating the element</h3>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js-small" style="height: 110px;">
+<the-flash></the-flash>
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide>
+
+            </ninja-slide>
+
+            <!-- HTML IMPORTS ----------------------------------------------------------------------------------->
         </ninja-presentation>
     </body>
 </html>

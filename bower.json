@@ -2,6 +2,7 @@
   "name": "WebComponent-me",
   "version": "1.0.0",
   "dependencies": {
-    "ninja-presentation": "~0.3.0"
+    "ninja-presentation": "~0.3.0",
+    "prism-js": "~0.1.0"
   }
 }
