@@ -1,0 +1,14 @@
+<!-- empty custom element demo -->
+
+<script>
+  // define the prototype
+  var TheFlashProto = Object.create(HTMLElement.prototype);
+
+  // register the element
+  document.registerElement('the-flash', {
+    prototype: TheFlashProto
+  });
+</script>
+
+<!-- instantiate the element -->
+<the-flash></the-flash>

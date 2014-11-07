@@ -279,7 +279,7 @@ document.registerElement('super-flash', {
             </ninja-slide>
 
             <ninja-slide>
-                <code-sandbox class="code-sandbox top" language="xml" src="../demos/the-flash-empty-element-demo.html"
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/custom-element-empty-demo.html"
                               theme="monokai">
                 </code-sandbox>
             </ninja-slide>
@@ -289,13 +289,19 @@ document.registerElement('super-flash', {
             </ninja-slide>
 
             <ninja-slide>
-                <code-sandbox class="code-sandbox top" language="xml" src="../demos/the-flash-element-demo.html"
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/custom-element-demo.html"
                     theme="monokai">
                 </code-sandbox>
             </ninja-slide>
 
+            <ninja-slide>
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/custom-element-with-attributes-demo.html"
+                              theme="monokai">
+                </code-sandbox>
+            </ninja-slide>
+
             <ninja-slide align="center">
-                <p>Still not sexy enough, but we're getting there ;)</p>
+                <p>Better! ... but still not sexy enough ;)</p>
             </ninja-slide>
 
             <ninja-slide align="center">
@@ -529,18 +535,177 @@ document.body.appendChild(document.importNode(template.content, true));
             </ninja-slide>
 
             <ninja-slide align="center">
-                <p><strong>Shadow DOM</strong> brings DOM tree and style encapsulation to developers</p>
+                <p><strong>Shadow DOM</strong> brings DOM tree and style encapsulation to the web</p>
             </ninja-slide>
 
             <ninja-slide align="center">
                 <h3>What happens in Vegas, stays in Vegas!</h3>
                 <img class="fragment" src="images/vegas.gif">
             </ninja-slide>
+            
+            <ninja-slide align="center">
+                <h3>Three important terms</h3>
+                <ul class="text-left text-large">
+                    <li class="li-pretty">
+                        <span style="font-style: italic"><strong>Shadow host</strong></span>
+                        - element that hosts one/more node trees
+                    </li>
+                    <li class="li-pretty">
+                        <span style="font-style: italic"><strong>Shadow tree</strong></span>
+                        - a node tree hosted by a shadow host
+                    </li>
+                    <li class="li-pretty">
+                        <span style="font-style: italic"><strong>Shadow root</strong></span>
+                        - the root node of a shadow tree
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Creating Shadow DOM</h3>
+                <p class="text-medium no-margins">Shadow DOM associates a <strong>shadow root</strong> to a
+                    <strong>shadow host</strong>
+                </p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                          style="font-size: 18px; height: 146px;">
+<div>Hello world!</div>
+                </prism-js>
+
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js"
+                          style="font-size: 18px; height: 310px;">
+var host = document.querySelector('div'); // the shadow host
+var root = host.createShadowRoot(); // the shadow root
+root.textContent = "Hellow devfest world!";
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Creating Shadow DOM</h3>
+                <p class="text-medium no-margins">Shadow DOM associates a <strong>shadow root</strong> to a
+                    <strong>shadow host</strong>
+                </p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 146px;">
+<div>Hello world!</div>
+                </prism-js>
+
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 310px;">
+var host = document.querySelector('div'); // the shadow host
+var root = host.createShadowRoot(); // the shadow root
+
+var p = document.createElement('p');
+p.innerHTML = "Hellow devfest world!";
+
+root.appendChild(p);
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Creating Shadow DOM</h3>
+                <p class="text-medium no-margins">Shadow DOM associates a <strong>shadow root</strong> to a
+                    <strong>shadow host</strong>
+                </p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 146px;">
+<div>Hello world!</div>
+<template id="mytemplate">Hello devfest world!</template>
+                </prism-js>
+
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 310px;">
+var host = document.querySelector('div'); // the shadow host
+var root = host.createShadowRoot(); // the shadow root
+
+var template = document.querySelector('mytemplate');
+var clone = document.importNode(template.content, true);
+
+root.appendChild(clone);
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/shadow-trees.svg" style="height: 500px; width: auto;">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/shadow-rendering.svg" style="height: 480px; width: auto;">
+                <p class="text-medium">The content of the shadow root is rendered instead of that of the shadow host</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Insertion points</h3>
+                <p class="text-large">&lt;content&gt;&lt;/content&gt; allows us to cherry pick content from the shadow host and render it</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins" style="padding-bottom: 10px;">Creating insertion points</h3>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                style=" font-size: 18px; height: 250px;">
+<div>Hello world!</div>
+
+<template id="mytemplate">
+  <content></content>
+  Nice to meet you :)
+</template>
+                </prism-js>
+
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 200px;">
+var host = document.querySelector('div');
+var root = host.createShadowRoot();
+var template = document.querySelector('#mytemplate');
+root.appendChild(document.importNode(template.content, true));
+                </prism-js>
+                <p class="text-small">Hello world! Nice to meet you :)</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins" style="padding-bottom: 15px;">Creating insertion points with selects</h3>
+                <p class="text-small no-margins"><i><strong>select</strong></i> attribute uses CSS selectors to pick out which items will be rendered</p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                style=" font-size: 18px; height: 350px;">
+<div>
+  <p class="world">world!</p>
+  <p class="hello">Hello</p>
+</div>
+
+<template id="mytemplate">
+  <content select=".hello"></content>
+  <content select=".world"></content>
+  Nice to meet you :)
+</template>
+                </prism-js>
+                <p class="text-small">Hello world! Nice to meet you :)</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>&lt;the-flash&gt; element in the shadow world</h3>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/shadow-dom-demo.html"
+                              theme="monokai">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <code-sandbox class="code-sandbox top" language="xml" theme="monokai"
+                              src="../demos/shadow-dom-with-insertion-points-demo.html">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>
+                    <a class="mylink" href="http://caniuse.com/#search=shadow"
+                       target="_blank">Browser support</a>
+                </h3>
+            </ninja-slide>
             <!-- END SHADOW DOM --------------------------------------------------------------------------------------->
 
 
 
-            <!-- HTML IMPORTS ----------------------------------------------------------------------------------->
+            <!-- HTML IMPORTS ----------------------------------------------------------------------------------------->
         </ninja-presentation>
     </body>
 </html>

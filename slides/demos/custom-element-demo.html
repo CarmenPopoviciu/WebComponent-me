@@ -1,16 +1,16 @@
-<!-- 'the-flash' custom element demo -->
+<!-- custom element demo -->
 
 <script>
   var TheFlashProto = Object.create(HTMLElement.prototype);
 
   // add some content
   TheFlashProto.createdCallback = function() {
-    var template =
+    var content =
        '<div>' +
          '<img src="../images/flash-in-action.png">' +
          '<h3>I am Flash and my super power is speed :)</h3>' +
        '</div>';
-    this.innerHTML = template;
+    this.innerHTML = content;
 
   };
 

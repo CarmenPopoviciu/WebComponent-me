@@ -16,19 +16,30 @@
 </template>
 
 <!-- append clone here instead of the document -->
-<div id="output"></div>
+<div id="output">
+    <the-flash img="../images/flash-in-action.png"></the-flash>
+</div>
 
 
 
 <!-- activate template ------------------------------------>
 <script>
-  var template = document.querySelector('#flashtemplate');
-  var output = document.getElementById("output");
+  var TheFlashProto = Object.create(HTMLElement.prototype);
 
-  template.content.querySelector('#flash').src = '../images/flash-in-action.png';
-  template.content.querySelector("h3").textContent = "I am Flash and my super power is speed :)";
+  // add some content
+  TheFlashProto.createdCallback = function() {
+    var img = this.getAttribute('img');
 
-  var clone = document.importNode(template.content, true);
-  // or var clone = template.content.cloneNode(true);
-  output.appendChild(clone);
+    var template = document.querySelector('#flashtemplate');
+    template.content.querySelector('#flash').src = img;
+    template.content.querySelector("h3").textContent = "I am Flash and my super power is speed :)";
+
+    var clone = document.importNode(template.content, true);
+    // or var clone = template.content.cloneNode(true);
+    this.appendChild(clone);
+  };
+
+  document.registerElement('the-flash', {
+    prototype: TheFlashProto
+  });
 </script>
