@@ -6,9 +6,24 @@ ninja-presentation /deep/ .text-left {
 ninja-presentation /deep/ .text-small {
     font-size: 30px;
 }
+ninja-presentation /deep/ .text-medium {
+    font-size: 38px;
+}
+
+ninja-presentation /deep/ .text-large {
+    font-size: 42px;
+}
+
+ninja-presentation /deep/ .text-italic {
+    font-style: italic;
+}
 
 ninja-presentation /deep/ .no-margins {
     margin: 0px;
+}
+
+ninja-presentation /deep/ .li-pretty {
+    padding: 10px;
 }
 
 ninja-presentation /deep/ a {
@@ -39,18 +54,18 @@ ninja-presentation /deep/ .transparent {
 }
 
 ninja-presentation /deep/ .newsflash {
-    background: url("../images/newsflash.png") no-repeat right top;
+    background: url("../images/flash-in-action.png") no-repeat right;
     width: 900px;
-    height: 250px;
-    vertical-align: middle;
+    height: 100px;
 }
 
 /*override the ninja-slide styling for the code-sandbox components*/
 ninja-presentation /deep/ .code-sandbox {
-    height: 300px;
+    height: 600px;
+    width: 1100px;
     text-align: left;
     font-family: monospace;
-    font-size: 14px;
+    font-size: 20px;
 }
 ninja-presentation /deep/ .prism-js {
     height: 500px;
@@ -63,7 +78,7 @@ ninja-presentation /deep/ .prism-js-small {
     height: 500px;
     text-align: left;
     font-family: monospace;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 20px;
 }
 

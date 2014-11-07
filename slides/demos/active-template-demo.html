@@ -1,18 +1,18 @@
 <!-- active template demo -->
 
 <!-- declare template ------------------------------->
-<template id="mytemplate">
-    <!-- template contents -->
-    <div id="devfest">
-        <img src="../images/devfest-logo.png" />
-        <h1>Good morning devfest :)</h1>
-    </div>
+<template id="flashtemplate">
+  <!-- template contents -->
+  <div id="devfest">
+    <img src="../images/devfest-logo.png" />
+      <h1>Good morning devfest :)</h1>
+  </div>
 
-    <div>
-        <img id="profile" src="" alt="Say cheese!" />
-        <h3></h3>
-    </div>
-    <!-- end template contents -->
+  <div>
+    <img id="flash" src="" />
+    <h3></h3>
+  </div>
+  <!-- end template contents -->
 </template>
 
 <!-- append clone here instead of the document -->
@@ -22,13 +22,13 @@
 
 <!-- activate template ------------------------------------>
 <script>
-    var template = document.querySelector('#mytemplate');
-    var output = document.getElementById("output");
+  var template = document.querySelector('#flashtemplate');
+  var output = document.getElementById("output");
 
-    template.content.querySelector('#profile').src = '../images/newsflash.png';
-    template.content.querySelector("h3").textContent = "My name is Flash and I am super fast!";
+  template.content.querySelector('#flash').src = '../images/flash-in-action.png';
+  template.content.querySelector("h3").textContent = "I am Flash and my super power is speed :)";
 
-    var clone = document.importNode(template.content, true);
-    // or var clone = template.content.cloneNode(true);
-    output.appendChild(clone);
+  var clone = document.importNode(template.content, true);
+  // or var clone = template.content.cloneNode(true);
+  output.appendChild(clone);
 </script>

@@ -1,20 +1,19 @@
 <!-- inert template demo -->
-<!-- scroll down for homework ;) -->
 
-<h3>Say hi to #mytemplate. Oh wait... o_O</h3>
+<h3>Say hi to #flashtemplate. Oh wait... o_O</h3>
 
-<template id="mytemplate">
-    <!-- template contents -->
-    <div id="devfest">
-        <img src="../images/devfest-logo.png" />
-        <h1>Good morning devfest :)</h1>
-    </div>
+<template id="flashtemplate">
+  <!-- template contents -->
+  <div id="devfest">
+    <img src="../images/devfest-logo.png" />
+    <h1>Good morning devfest :)</h1>
+  </div>
 
-    <div>
-        <img id="profile" src="" alt="Say cheese!" />
-        <h3></h3>
-    </div>
-    <!-- end template contents -->
+  <div>
+    <img id="flash" src="" />
+    <h3></h3>
+  </div>
+  <!-- end template contents -->
 </template>
 
 
@@ -26,9 +25,9 @@
 <div id="output"></div>
 
 <script>
-  var template = document.getElementById("mytemplate");
+  var template = document.getElementById("flashtemplate");
   var childNode = document.getElementById("devfest");
-  var console = document.getElementById("output");
+  var output = document.getElementById("output");
 
   var p1 = document.createElement("p");
   var p2 = document.createElement("p");
