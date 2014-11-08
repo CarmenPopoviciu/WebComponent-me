@@ -33,6 +33,7 @@ ninja-presentation /deep/ a {
 
 ninja-presentation /deep/ .list {
     list-style: none;
+    margin-left: 50px;
 }
 
 

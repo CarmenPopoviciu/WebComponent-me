@@ -364,8 +364,8 @@ document.registerElement('super-flash', {
                 <p>a document or file with a preset format, which can be reused different times</p>
             </ninja-slide>
 
-            <ninja-slide>
-                <span>TODO: add template image</span>
+            <ninja-slide align="center">
+                <img src="images/template.jpg" style="height: 400px; width: auto;">
             </ninja-slide>
 
             <ninja-slide align="center">
@@ -373,7 +373,7 @@ document.registerElement('super-flash', {
                 <ul class="text-left text-medium">
                     <li class="fragment">Server-side templating</li>
                     <li class="fragment">MVC frameworks use templates for the representational layer</li>
-                    <li class="fragment">Using templates in the browser has become more widespread</li>
+                    <li class="fragment">Using templates on the client-side has become more widespread</li>
                 </ul>
             </ninja-slide>
 
@@ -696,6 +696,30 @@ root.appendChild(document.importNode(template.content, true));
             </ninja-slide>
 
             <ninja-slide align="center">
+                <h3 class="no-margins">Styling in Shadow DOM</h3>
+                <ul class="text-left text-large">
+                    <li><i><strong>:host</strong></i> - the host element</li>
+                    <li>
+                        <i><strong>:host(selector)</strong></i>
+                        - host element which matches the selector</li>
+                    <li>
+                        <i><strong>:host-context(selector)</strong></i>
+                        - the host element whose any of its ancestors matches the selector
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins">Styling Shadow DOM from the outside</h3>
+                <ul class="text-left text-large">
+                    <li><i><strong>::shadow</strong></i> - the shadow root itself</li>
+                    <li>
+                        <i><strong>/deep/</strong></i>
+                        - ignores all shadow boundaries and crosses into any number of shadow trees</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
                 <h3>
                     <a class="mylink" href="http://caniuse.com/#search=shadow"
                        target="_blank">Browser support</a>
@@ -706,6 +730,119 @@ root.appendChild(document.importNode(template.content, true));
 
 
             <!-- HTML IMPORTS ----------------------------------------------------------------------------------------->
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p><strong>HTML Imports</strong> is a way to include HTML documents in other HTML documents</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Including an import</h3>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 150px">
+<link rel="import" href="demos/shadow-dom-demo.html">
+                </prism-js>
+
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 320px;">
+<!-- shadow-dom-demo.html -->
+
+<link rel="stylesheet" type="text/css" href="">
+<script type="text/javascript" src=""></script>
+<!-- anything else that an html document can contain -->
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Including an import</h3>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 150px">
+<link rel="import" href="demos/shadow-dom-demo.html">
+                </prism-js>
+
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 320px;">
+<!-- shadow-dom-demo.html -->
+
+<link rel="import" href="demos/custom-element-demo.html">
+<link rel="stylesheet" type="text/css" href="">
+<script type="text/javascript" src=""></script>
+<!-- anything else that an html document can contain -->
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Using the content of the import</h3>
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js" style="height: 150px;">
+var content = document.querySelector('link[rel="import"]').import;
+                </prism-js>
+
+                <ul class="text-left text-large">
+                    <li>An import is just a document</li>
+                    <li><strong>link.import</strong> contains the content of the import</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2></h2>
+                <code-sandbox class="code-sandbox top" language="xml" theme="monokai"
+                              src="../demos/imports-demo.html">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>
+                    <a class="mylink" href="http://caniuse.com/#search=html"
+                       target="_blank">Browser support</a>
+                </h3>
+            </ninja-slide>
+            <!-- END HTML IMPORTS ------------------------------------------------------------------------------------->
+
+            <ninja-slide align="center">
+                <img src="images/satisfied.gif" class="funny">
+            </ninja-slide>
+
+            <ninja-slide align="center" background="url(images/devfest-background.png) no-repeat right">
+                <h1>Thank you :)</h1>
+            </ninja-slide>
         </ninja-presentation>
     </body>
 </html>

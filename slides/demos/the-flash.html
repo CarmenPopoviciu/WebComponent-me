@@ -1,0 +1,70 @@
+<!-- the flash custom element -->
+
+<template id="flashtemplate">
+    <div id="devfest">
+        <content select="img"></content>
+        <content select="h1"></content>
+    </div>
+
+    <div>
+        <img id="flash" src="" />
+        <h3></h3>
+    </div>
+
+    <style>
+        ::content img {
+            width: 80px;
+            height: 30px;
+            float: left;
+            padding: 10px;
+        }
+
+        ::content h1 {
+            color: indianred;
+            padding: 5px;
+        }
+
+        h3 {
+            color: dimgrey;
+        }
+
+        #flash {
+            width: 80px;
+            height: 80px;
+            border: 1px solid darkgrey;
+            border-radius: 50%;
+            float: left;
+        }
+    </style>
+</template>
+
+
+
+
+<script>
+    var TheFlashProto = Object.create(HTMLElement.prototype);
+
+    // thisDoc refers to the "importee", which is the-flash.html
+    var thisDoc = document.currentScript.ownerDocument;
+
+    // thatDoc refers to the "importer", which is index.html
+    var thatDoc = document;
+
+    TheFlashProto.createdCallback = function() {
+        var img = this.getAttribute('img');
+
+        // this
+        var shadowRoot = this.createShadowRoot();
+
+        var template = thisDoc.querySelector('#flashtemplate');
+        template.content.querySelector('#flash').src = img;
+        template.content.querySelector("h3").textContent = "I am Flash and my super power is speed :)";
+
+        var clone = thisDoc.importNode(template.content, true);
+        shadowRoot.appendChild(clone);
+    };
+
+    thatDoc.registerElement('the-flash', {
+        prototype: TheFlashProto
+    });
+</script>
