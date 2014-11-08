@@ -12,8 +12,8 @@ gulp
 
 ### Built with
 
-https://github.com/viniciusalmeida/ninja-presentation
-https://github.com/AVGP/code-sandbox
-https://github.com/addyosmani/prism-js
+* https://github.com/viniciusalmeida/ninja-presentation
+* https://github.com/AVGP/code-sandbox
+* https://github.com/addyosmani/prism-js
 
 and Web Comp<3nents :)
