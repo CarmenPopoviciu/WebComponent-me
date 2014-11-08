@@ -8,6 +8,7 @@ $ git clone https://github.com/CarmenPopoviciu/WebComponent-me
 npm install
 bower install
 gulp
+```
 
 ### Built with
 https://github.com/viniciusalmeida/ninja-presentation
