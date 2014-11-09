@@ -30,5 +30,10 @@ gulp.task('connect', function() {
     });
 });
 
+gulp.task('copy', function() {
+    gulp.src("slides/**/*")
+        .pipe(gulp.dest('./slides/public'));
+});
+
 // default task
 gulp.task('default', ['open', 'connect', 'watch']);
