@@ -1,0 +1,70 @@
+<!-- shadow dom with insertion points demo -->
+
+<template id="flashtemplate">
+    <div id="devfest">
+        <content select="img"></content>
+        <content select="h1"></content>
+    </div>
+
+    <div>
+        <img id="flash" src="" />
+        <h3></h3>
+    </div>
+
+    <style>
+        ::content img {
+            width: 80px;
+            height: 30px;
+            float: left;
+            padding: 10px;
+        }
+
+        ::content h1 {
+            color: indianred;
+            padding: 5px;
+        }
+
+        h3 {
+            color: dimgrey;
+        }
+
+        #flash {
+            width: 80px;
+            height: 80px;
+            border: 1px solid darkgrey;
+            border-radius: 50%;
+            float: left;
+        }
+    </style>
+</template>
+
+<!-- the host element -->
+<div id="flash">
+    <h1>Good morning devfest :)</h1>
+    <img src="../images/devfest-logo.png" />
+</div>
+
+<the-flash img="../images/flash-in-action.png"></the-flash>
+
+
+<script>
+  var TheFlashProto = Object.create(HTMLElement.prototype);
+
+  TheFlashProto.createdCallback = function() {
+    var img = this.getAttribute('img');
+
+    var host = document.querySelector('#flash');
+    var shadowRoot = host.createShadowRoot();
+
+    var template = document.querySelector('#flashtemplate');
+    template.content.querySelector('#flash').src = img;
+    template.content.querySelector("h3").textContent = "I am Flash and my super power is speed :)";
+
+    var clone = document.importNode(template.content, true);
+    shadowRoot.appendChild(clone);
+  };
+
+  document.registerElement('the-flash', {
+    prototype: TheFlashProto
+  });
+</script>

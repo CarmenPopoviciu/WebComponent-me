@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebComponent-me</title>
+
+        <script type="text/javascript" src="bower_components/platform/platform.js"></script>
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel='import' href='bower_components/ninja-presentation/src/ninja-presentation.html'>
+        <link rel="import" href="libs/code-sandbox/code-sandbox.html">
+        <link rel="import" href="bower_components/prism-js/prism-js.html">
+
+        <link rel="stylesheet" type="text/css" href="css/slides.css">
+    </head>
+
+    <body>
+        <ninja-presentation>
+            <!-- INTRO ------------------------------------------------------------------------------------------------>
+            <ninja-slide align="center" background="url(images/devfest-background.png) no-repeat right">
+                <img class="devfest-logo" src="images/devfest-logo.png">
+                <h2>Introduction to Web Components</h2>
+                <img class="profile-img" src="images/profile.jpg">
+                <p class="text-small no-margins">@CarmenPopoviciu</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img class="funny" src="images/calmdown.gif">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h4>Before we start, a few MUST KNOWS about this talk</h4>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>1. I don't wear glasses!</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/gpost.png">
+                <div class="fragment">
+                    <p class="no-margins">2. You'll be seeing some more of Oprah </p>
+                </div>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>3. ... and of Flash</p>
+                <img class="fragment" src="images/flash.jpg">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>4. These slides would have not been possible without</p>
+                <div>
+                    <a class="text-small"
+                       href="https://github.com/viniciusalmeida/ninja-presentation">https://github.com/viniciusalmeida/ninja-presentation
+                    </a>
+                    <span class="text-small">by <strong>Vinícius Almeida da Silva</strong></span>
+                </div>
+                <div>
+                    <a class="text-small"
+                       href="https://github.com/AVGP/code-sandbox">https://github.com/AVGP/code-sandbox
+                    </a>
+                    <span class="text-small">by <strong>Martin Naumann</strong></span>
+                </div>
+                <div>
+                    <a class="text-small"
+                       href="https://github.com/addyosmani/prism-js">https://github.com/addyosmani/prism-js</a>
+                    <span class="text-small">by <strong>Addy Osmani</strong></span>
+                </div>
+                <p><3</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img class="funny" src="images/dealwithit.gif">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h1>Let's talk Web Components!</h1>
+            </ninja-slide>
+            <!-- END INTRO -------------------------------------------------------------------------------------------->
+
+
+
+            <!-- WEB COMPONENTS GENERALS ------------------------------------------------------------------------------>
+            <ninja-slide align="center">
+                <h3>Web Components are a collection of emerging
+                    <a class="mylink" href="http://www.w3.org/standards/techs/components#w3c_all" target="_blank"> standards</a>
+                    that define the way we build web applications
+                </h3>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li>
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+            <!-- END WEB COMPONENTS GENERALS -------------------------------------------------------------------------->
+
+
+            <!-- CUSTOM ELEMENTS -------------------------------------------------------------------------------------->
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li>
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2 style="margin-top: 90px;">Imagine</h2>
+                <div class="fragment">
+                    <p class="text-left text-small">this</p>
+                    <prism-js language="markup" escape="true" theme="okaidia" class="prism-js-small" style="font-size: 18px;">
+<div class="the-flash">
+    <div class="another-class">
+        <div class="and-another-class">
+            <div class="phew-are-we-there-yet">
+                <div class="aaaand-another-class">
+                    <div class="this-will-never-end-right">
+                        <div>o_O</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </prism-js>
+                </div>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Imagine</h2>
+                <p class="text-left text-small">could look like this</p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js">
+<the-flash></the-flash>
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/happiness-cry.gif">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p><strong>Custom elements</strong> allow developers to extend the HTML vocabulary and define new, fully-featured DOM elements</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>But most importantly</h2>
+                <p>
+                    <span class="text-large">they enable you to write</span>
+                    <span><strong> declarative,</strong></span>
+                    <span><strong> readable</strong>,</span>
+                    <span><strong> meaningful</strong>,</span>
+                    <span><strong> reusable</strong></span>
+                    <span class="text-large"> and</span>
+                    <span><strong>self sustainable</strong></span>
+                    <span class="text-large">HTML elements</span>
+                </p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>... and don't forget ...</p>
+                <h1>It is all DOM!!</h1>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img style="height: 400px; width: auto" src="images/lovely.gif">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Registering a new custom element</h3>
+                <prism-js language="javascript" theme="okaidia" class="prism-js" style="height: 200px;">
+document.registerElement('the-flash', {
+    prototype: Object.create(HTMLElement.prototype) // optional
+});
+                </prism-js>
+                <ul class="text-small text-left">
+                    <li class="fragment">.registerElement() teaches the browser about the new element</li>
+                    <li class="fragment">The element's tag name <strong>must contain a dash (-)</strong></li>
+                    <li class="fragment"><strong>Prototype</strong> is the place to add custom functionality</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Instantiating the element</h3>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 330px;">
+<the-flash></the-flash>
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins">Extending elements</h3>
+                <p class="text-medium">To extend an element, .registerElement() expects the name and prototype of the element to inherit from</p>
+                <prism-js language="javascript" theme="okaidia" class="prism-js-small" style="height: 230px; font-size: 17px;">
+// extend native elements
+// aka type extension custom elements
+
+document.registerElement('mega-button', {
+    prototype: Object.create(HTMLButtonElement.prototype),
+    extends: 'button'
+});
+                </prism-js>
+
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 130px; font-size: 17px;">
+<button is="mega-button"></button>
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins">Extending elements</h3>
+                <p class="text-medium">To extend an element, .registerElement() expects the name and prototype of the element to inherit from</p>
+                <prism-js language="javascript" theme="okaidia" class="prism-js-small" style="height: 230px; font-size: 17px;">
+// extend other custom elements
+var theFlashProto = Object.create(HTMLElement.prototype);
+
+document.registerElement('super-flash', {
+    prototype: theFlashProto,
+    extends: 'the-flash'
+});
+                </prism-js>
+
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 130px; font-size: 17px;">
+<super-flash></super-flash>
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins">Lifecycle callbacks</h3>
+                <ul class="text-left text-medium">
+                    <li class="li-pretty">
+                        <span class="text-italic text-large"><strong>createdCallback</strong></span>
+                        <span style="font-size: 29px;"> (instance was created and its definition was registered)</span>
+                    </li>
+                    <li class="li-pretty">
+                        <span class="text-italic text-large"><strong>attachedCallback</strong></span>
+                        <span style="font-size: 29px;"> (element was inserted into the document)</span>
+                    </li>
+                    <li class="li-pretty">
+                        <span class="text-italic text-large"><strong>detachedCallback</strong></span>
+                        <span style="font-size: 29px;"> (element was removed from the document)</span>
+                    </li>
+                    <li class="li-pretty">
+                        <span class="text-italic text-large"><strong>attributeChangedCallback</strong></span>
+                        <span style="font-size: 29px;"> (element's attribute was added, changed or removed)</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Let's build the &lt;the-flash&gt; element!</h2>
+            </ninja-slide>
+
+            <ninja-slide>
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/custom-element-empty-demo.html"
+                              theme="monokai">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>OK, that's not very sexy :(</p>
+            </ninja-slide>
+
+            <ninja-slide>
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/custom-element-demo.html"
+                    theme="monokai">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide>
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/custom-element-with-attributes-demo.html"
+                              theme="monokai">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>Better! ... but still not sexy enough ;)</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>
+                    <a class="mylink" href="http://caniuse.com/#search=custom%20elements"
+                       target="_blank">Browser support</a>
+                </h3>
+            </ninja-slide>
+            <!-- END CUSTOM ELEMENTS ---------------------------------------------------------------------------------->
+
+
+
+            <!-- HTML TEMPLATES --------------------------------------------------------------------------------------->
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li>
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="left" class="quote">
+                <span><strong>tem·plate</strong> noun \ˈtem-plət\:</span>
+                <p>a document or file with a preset format, which can be reused different times</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/template.jpg" style="height: 400px; width: auto;">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p class="newsflash" style="font-weight: bold;"><span>Templating is not news</span></p>
+                <ul class="text-left text-medium">
+                    <li class="fragment">Server-side templating</li>
+                    <li class="fragment">MVC frameworks use templates for the representational layer</li>
+                    <li class="fragment">Using templates on the client-side has become more widespread</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h1>Why not a native solution?</h1>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Introducing <strong>&lt;template&gt;</strong></h2>
+                <div class="fragment">
+                    <p style="font-size: 50px;">The template element allows for the declaration of document fragments which are unused by the
+                   document when loaded, but are parsed as HTML and are available at runtime for use by the web
+                   page</p>
+                </div>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/confused.gif">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>... allows for the declaration of document fragments which are unused by the
+                    document when loaded, but are parsed as HTML and are available at runtime for use by the web
+                    page.
+                </p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Important to remember!</h3>
+                <ul class="text-left">
+                    <li class="fragment">Declare fragments of markup</li>
+                    <li class="fragment">Parsed as HTML</li>
+                    <li class="fragment">Not rendered</li>
+                    <li class="fragment">Can be cloned</li>
+                    <li class="fragment">Instantiated at runtime</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins">Declaring a template</h3>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 300px;">
+<template id="mytemplate">
+    <img src="" alt="THE Flash">
+    <audio>
+        <source src="flash-theme-song.mp3" type="audio/mpeg">
+    </audio>
+</template>
+                </prism-js>
+                <ul class="text-left text-small">
+                    <li class="fragment">Content is <strong>inert</strong></li>
+                    <li class="fragment">Scripts won't run, images won't load, media will not play, etc.</li>
+                    <li class="fragment">Content is considered not to be in the document</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Going back to &lt;the-flash&gt; element</h2>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/inert-template-demo.html"
+                              theme="monokai">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins">Activating the template</h3>
+                <p class="text-medium">A template can be activated by creating a deep copy of its .content</p>
+                <prism-js language="javascript" theme="okaidia" class="prism-js-small" style="height: 320px;">
+// select template
+var template = document.querySelector('#mytemplate');
+
+// add your content
+template.content.querySelector('img').src = 'the-flash.png';
+
+// clone template content and append it to the document
+document.body.appendChild(document.importNode(template.content, true));
+                </prism-js>
+
+                <!--<ul class="text-left text-small">
+                    <li class="fragment">Contents are stored in a <strong>DocumentFragment</strong></li>
+                    <li class="fragment">DocumentFragment is not associated with the main Document</li>
+                    <li class="fragment">The cloned node can be attached to the main Document </li>
+                </ul>-->
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/active-template-demo.html"
+                              theme="monokai">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 style="margin-bottom: 20px; margin-top: 10px;">Once more with...style</h3>
+                <div class="fragment">
+                    <code-sandbox class="code-sandbox top" language="xml" src="../demos/active-template-styles-demo.html"
+                                  theme="monokai" style="height: 500px; width: auto;">
+                    </code-sandbox>
+                </div>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>
+                    <a class="mylink" href="http://caniuse.com/#search=html%20templates"
+                       target="_blank">Browser support</a>
+                </h3>
+            </ninja-slide>
+            <!-- END HTML TEMPLATES ----------------------------------------------------------------------------------->
+
+
+
+            <!-- SHADOW DOM ------------------------------------------------------------------------------------------->
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p>In OO world, <strong>encapsulation</strong> isolates the implementation details of a component from the user</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p><strong>Shadow DOM</strong> brings DOM tree and style encapsulation to the web</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>What happens in Vegas, stays in Vegas!</h3>
+                <img class="fragment" src="images/vegas.gif">
+            </ninja-slide>
+            
+            <ninja-slide align="center">
+                <h3>Three important terms</h3>
+                <ul class="text-left text-large">
+                    <li class="li-pretty">
+                        <span style="font-style: italic"><strong>Shadow host</strong></span>
+                        - element that hosts one/more node trees
+                    </li>
+                    <li class="li-pretty">
+                        <span style="font-style: italic"><strong>Shadow tree</strong></span>
+                        - a node tree hosted by a shadow host
+                    </li>
+                    <li class="li-pretty">
+                        <span style="font-style: italic"><strong>Shadow root</strong></span>
+                        - the root node of a shadow tree
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Creating Shadow DOM</h3>
+                <p class="text-medium no-margins">Shadow DOM associates a <strong>shadow root</strong> to a
+                    <strong>shadow host</strong>
+                </p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                          style="font-size: 18px; height: 146px;">
+<div>Hello world!</div>
+                </prism-js>
+
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js"
+                          style="font-size: 18px; height: 310px;">
+var host = document.querySelector('div'); // the shadow host
+var root = host.createShadowRoot(); // the shadow root
+root.textContent = "Hellow devfest world!";
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Creating Shadow DOM</h3>
+                <p class="text-medium no-margins">Shadow DOM associates a <strong>shadow root</strong> to a
+                    <strong>shadow host</strong>
+                </p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 146px;">
+<div>Hello world!</div>
+                </prism-js>
+
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 310px;">
+var host = document.querySelector('div'); // the shadow host
+var root = host.createShadowRoot(); // the shadow root
+
+var p = document.createElement('p');
+p.innerHTML = "Hellow devfest world!";
+
+root.appendChild(p);
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Creating Shadow DOM</h3>
+                <p class="text-medium no-margins">Shadow DOM associates a <strong>shadow root</strong> to a
+                    <strong>shadow host</strong>
+                </p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 146px;">
+<div>Hello world!</div>
+<template id="mytemplate">Hello devfest world!</template>
+                </prism-js>
+
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 310px;">
+var host = document.querySelector('div'); // the shadow host
+var root = host.createShadowRoot(); // the shadow root
+
+var template = document.querySelector('mytemplate');
+var clone = document.importNode(template.content, true);
+
+root.appendChild(clone);
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/shadow-trees.svg" style="height: 500px; width: auto;">
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <img src="images/shadow-rendering.svg" style="height: 480px; width: auto;">
+                <p class="text-medium">The content of the shadow root is rendered instead of that of the shadow host</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Insertion points</h3>
+                <p class="text-large">&lt;content&gt;&lt;/content&gt; allows us to cherry pick content from the shadow host and render it</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins" style="padding-bottom: 10px;">Creating insertion points</h3>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                style=" font-size: 18px; height: 250px;">
+<div>Hello world!</div>
+
+<template id="mytemplate">
+  <content></content>
+  Nice to meet you :)
+</template>
+                </prism-js>
+
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js"
+                          style=" font-size: 18px; height: 200px;">
+var host = document.querySelector('div');
+var root = host.createShadowRoot();
+var template = document.querySelector('#mytemplate');
+root.appendChild(document.importNode(template.content, true));
+                </prism-js>
+                <p class="text-small">Hello world! Nice to meet you :)</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins" style="padding-bottom: 15px;">Creating insertion points with selects</h3>
+                <p class="text-small no-margins"><i><strong>select</strong></i> attribute uses CSS selectors to pick out which items will be rendered</p>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js"
+                style=" font-size: 18px; height: 350px;">
+<div>
+  <p class="world">world!</p>
+  <p class="hello">Hello</p>
+</div>
+
+<template id="mytemplate">
+  <content select=".hello"></content>
+  <content select=".world"></content>
+  Nice to meet you :)
+</template>
+                </prism-js>
+                <p class="text-small">Hello world! Nice to meet you :)</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>&lt;the-flash&gt; element in the shadow world</h3>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <code-sandbox class="code-sandbox top" language="xml" src="../demos/shadow-dom-demo.html"
+                              theme="monokai">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <code-sandbox class="code-sandbox top" language="xml" theme="monokai"
+                              src="../demos/shadow-dom-with-insertion-points-demo.html">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins">Styling in Shadow DOM</h3>
+                <ul class="text-left text-large">
+                    <li><i><strong>:host</strong></i> - the host element</li>
+                    <li>
+                        <i><strong>:host(selector)</strong></i>
+                        - host element which matches the selector</li>
+                    <li>
+                        <i><strong>:host-context(selector)</strong></i>
+                        - the host element whose any of its ancestors matches the selector
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3 class="no-margins">Styling Shadow DOM from the outside</h3>
+                <ul class="text-left text-large">
+                    <li><i><strong>::shadow</strong></i> - the shadow root itself</li>
+                    <li>
+                        <i><strong>/deep/</strong></i>
+                        - ignores all shadow boundaries and crosses into any number of shadow trees</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>
+                    <a class="mylink" href="http://caniuse.com/#search=shadow"
+                       target="_blank">Browser support</a>
+                </h3>
+            </ninja-slide>
+            <!-- END SHADOW DOM --------------------------------------------------------------------------------------->
+
+
+
+            <!-- HTML IMPORTS ----------------------------------------------------------------------------------------->
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h2>Four standards</h2>
+                <ul class="list text-left">
+                    <li class="transparent">
+                        <img src="images/icon-customelements.png">
+                        <span>Custom Elements</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-templates.png">
+                        <span>HTML Templates</span>
+                    </li>
+                    <li class="transparent">
+                        <img src="images/icon-shadowdom.png">
+                        <span>Shadow DOM</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-htmlimports.png">
+                        <span>HTML Imports</span>
+                    </li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <p><strong>HTML Imports</strong> is a way to include HTML documents in other HTML documents</p>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Including an import</h3>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 150px">
+<link rel="import" href="demos/shadow-dom-demo.html">
+                </prism-js>
+
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 320px;">
+<!-- shadow-dom-demo.html -->
+
+<link rel="stylesheet" type="text/css" href="">
+<script type="text/javascript" src=""></script>
+<!-- anything else that an html document can contain -->
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Including an import</h3>
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 150px">
+<link rel="import" href="demos/shadow-dom-demo.html">
+                </prism-js>
+
+                <prism-js language="markup" escape="true" theme="okaidia" class="prism-js" style="height: 320px;">
+<!-- shadow-dom-demo.html -->
+
+<link rel="import" href="demos/custom-element-demo.html">
+<link rel="stylesheet" type="text/css" href="">
+<script type="text/javascript" src=""></script>
+<!-- anything else that an html document can contain -->
+                </prism-js>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>Using the content of the import</h3>
+                <prism-js language="javascript" escape="true" theme="okaidia" class="prism-js" style="height: 150px;">
+var content = document.querySelector('link[rel="import"]').import;
+                </prism-js>
+
+                <ul class="text-left text-large">
+                    <li>An import is just a document</li>
+                    <li><strong>link.import</strong> contains the content of the import</li>
+                </ul>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <code-sandbox class="code-sandbox top" language="xml" theme="monokai"
+                              src="../demos/imports-demo.html">
+                </code-sandbox>
+            </ninja-slide>
+
+            <ninja-slide align="center">
+                <h3>
+                    <a class="mylink" href="http://caniuse.com/#search=html"
+                       target="_blank">Browser support</a>
+                </h3>
+            </ninja-slide>
+            <!-- END HTML IMPORTS ------------------------------------------------------------------------------------->
+
+            <ninja-slide align="center">
+                <img src="images/satisfied.gif" class="funny">
+            </ninja-slide>
+
+            <ninja-slide align="center" background="url(images/devfest-background.png) no-repeat right">
+                <h1>Thank you :)</h1>
+            </ninja-slide>
+        </ninja-presentation>
+    </body>
+</html>
